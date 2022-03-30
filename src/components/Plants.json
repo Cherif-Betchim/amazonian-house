@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "mint",
+    "image": "mint.jpg",
+    "price": "48",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 2,
+    "name": "basil",
+    "image": "basil.jpg",
+    "price": "200",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 3,
+    "name": "cactus",
+    "image": "cactus.jpg",
+    "price": "12",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 4,
+    "name": "lyrata",
+    "image": "lyrata.jpg",
+    "price": "40",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 5,
+    "name": "pothos",
+    "image": "pothos.jpg",
+    "price": "5",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 6,
+    "name": "olivier",
+    "image": "olivier.jpg",
+    "price": "23",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 7,
+    "name": "calathea",
+    "image": "calathea.jpg",
+    "price": "9",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 8,
+    "name": "monstera",
+    "image": "monstera.jpg",
+    "price": "15",
+    "description": "lorep shitty"
+  },
+  {
+    "id": 9,
+    "name": "succulent",
+    "image": "succulent.jpg",
+    "price": "140",
+    "description": "lorep shitty"
+  }
+]
