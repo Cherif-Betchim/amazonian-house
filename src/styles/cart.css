@@ -13,3 +13,12 @@
 
 
 /*}*/
+
+.cart-image{
+    height: 70px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+tr{
+    border: 1pt solid black;}

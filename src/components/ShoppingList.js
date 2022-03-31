@@ -3,61 +3,48 @@ import "../styles/shoppingList.css"
 import CardsLayout from "./CardsLayout";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 import axios from "axios";
+import {useCart} from "react-use-cart"
+import {MDBIcon} from "mdbreact";
 
-class ShoppingList extends React.Component {
+const ShoppingList = (props) => {
+
+    useEffect(() => {
+        getPlants();
+    })
 
 
-    constructor(props) {
-        super();
-        this.state = {
-            items: [],
-            DataIsLoaded: false
-        };
+    const [plants, setPlants] = useState({});
+    const [loading, setLoading] = useState(false)
+    const getPlants = async () => {
+        try {
+            const res = await axios.get("https://api.npoint.io/f6f9bbb445c2c064e7de")
+            setPlants(res.data)
+            setLoading(true)
+        } catch (err) {
+            alert(err.message)
+        }
+
+    }
+    if (!loading) {
+        return (<div>Loading...</div>)
     }
 
-
-    importAll(r) {
-        let images = {};
-        r.keys().map((item, index) => {
-            images[item.replace('./', '')] = r(item);
-        });
-        return images;
-    }
-
-    componentDidMount() {
-        fetch("https://api.jsonbin.io/b/624444c0d96a510f028cca2e")
-            .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    items: json,
-                    DataIsLoaded: true
-                })
-            })
-    }
-
-    render() {
-        const {DataIsLoaded, items} = this.state;
-        if (!DataIsLoaded) return <div>
-            <h1>please wait some times</h1>
-        </div>
-        return (
-            <div className={"container-fluid"}>
-
-                <div className={"row"}>
-                    {items.map((item) => (
-                        <div className={"col"}>
-                            <CardsLayout name={item.name} price={item.price} image={item.image}/>
-
-                        </div>
-
-                    ))
-                    }
-
+    return <div className={"container-fluid"}>
+        <div className={"row"}>
+            {plants.map((plant, index) => {
+                return <div className={"col"}>
+                    <CardsLayout name={plant.name}
+                                 price={plant.price}
+                                 image={plant.image}
+                                 key={plant.id}
+                                 item={plant}
+                    />
                 </div>
+            })}
+        </div>
 
-            </div>
-        )
-    }
+    </div>
 }
+
 
 export default ShoppingList;

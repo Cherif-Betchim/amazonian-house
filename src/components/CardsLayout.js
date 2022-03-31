@@ -2,8 +2,10 @@ import React from "react";
 import '../styles/cardsLayout.css'
 import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 import ShoppingList from "./ShoppingList";
+import {MDBIcon} from "mdbreact";
+import {useCart} from "react-use-cart"
 
-function CardsLayout(props) {
+const CardsLayout =(props)=> {
 
     function importAll(r) {
         let images = {};
@@ -13,9 +15,11 @@ function CardsLayout(props) {
         return images;
     }
 
-    var imgList = [""]
+    const{addItem}=useCart();
+
 
     const images = importAll(require.context('../assets/plants', false, /\.(png|jpe?g|svg)$/));
+
 
 
     return <div className={"card-layout"}>
@@ -27,8 +31,8 @@ function CardsLayout(props) {
             {props.price} <span>$</span>
         </div>
         <h2 className={"card-title"}>{props.name}</h2>
-        {/*<button type="button" className="btn btn-outline-primary">add to cart</button>*/}
-        <button type="button" className="shitty btn btn-success btn-rounded" data-mdb-ripple-color="#ffffff"> Add to cart <i className="fas fa-download ms-1"/></button>
+        <button type="button" onClick={()=>addItem(props.item)} className="shitty btn btn-success btn-rounded" data-mdb-ripple-color="#ffffff"> Add to
+            cart <MDBIcon fas icon="cart-arrow-down"/></button>
     </div>
 
 }

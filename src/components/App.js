@@ -6,21 +6,27 @@ import CardsLayout from "./CardsLayout";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 // import 'node_modules/bootstrap/dist/js/bootstrap.js'
 import '../styles/App.css';
+import {CartProvider} from "react-use-cart"
+
 
 function App() {
     return (
         <div className="App ">
             <Banner/>
-            <div className={"container-fluid"}>
-                <div className={"row"}>
-                    <div className={"cart col-md-3"}>
-                        <Cart/>
-                    </div>
-                    <div className={"cards col-md-9 "}>
-                        <ShoppingList/>
+            <CartProvider>
+                <div className={"container-fluid"}>
+                    <div className={"row"}>
+                        <div className={"cart col-md-4"}>
+                            <Cart/>
+                        </div>
+                        <div className={"cards col-md-8 "}>
+                            <ShoppingList/>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </CartProvider>
+
             {/*</header>*/}
         </div>
     );
