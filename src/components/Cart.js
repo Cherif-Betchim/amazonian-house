@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/cart.css"
 import {useCart} from "react-use-cart"
+import {MDBIcon} from "mdbreact";
+import Checkout from "./Checkout";
 
 const Cart = () => {
 
@@ -68,7 +70,10 @@ const Cart = () => {
             </tbody>
 
             <h5>Totale Price: {cartTotal} $</h5>
-            <button className={"btn btn-danger"} onClick={emptyCart}/>
+            <button className={"btn btn-danger"} onClick={emptyCart}>Empty Cart
+                <MDBIcon fas icon="trash" /></button>
+            <Checkout/>
+
         </section>
 
 
